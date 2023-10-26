@@ -94,7 +94,10 @@ export default function Game() {
   );
 }
 
+
+// This function takes an array "squares" as input.
 function calculateWinner(squares) {
+// Define an array "lines" that represents all the possible winning combinations in the game.
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -105,11 +108,16 @@ function calculateWinner(squares) {
     [0, 4, 8],
     [2, 4, 6]
   ];
+// Iterate through the "lines" array to check if any winning combinations exist.
   for (let i = 0; i < lines.length; i++) {
+// Destructure the current line into three variables: "a," "b," and "c."
     const [a, b, c] = lines[i];
+// Check if all three squares in the current line have the same value (either 'X' or 'O').
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+// If a winning combination is found, return the value of the winning player ('X' or 'O').
       return squares[a];
     }
   }
+// If no winning combination is found after checking all possibilities, return null to indicate a draw or ongoing game.
   return null;
 }
